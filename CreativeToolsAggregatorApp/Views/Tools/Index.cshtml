@@ -1,0 +1,245 @@
+﻿@model IEnumerable<CreativeToolsAggregatorApp.Models.Tools>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    table {
+        width: 80%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    th, td {
+        border: 1px solid #aaa;
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #6381ed;
+    }
+
+    caption {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    #mydiv {
+        cursor: pointer;
+    }
+
+        #mydiv:hover {
+            color: #007BFF;
+        }
+
+    .logoSize {
+        height: 30px;
+        width: auto;
+    }
+
+    .h1-gradient {
+        font-size: 2.5em;
+        font-weight: bold;
+        background: linear-gradient(to right, #00c6ff, #0072ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .tooltip-container {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .tooltip-text {
+        visibility: hidden;
+        width: 160px;
+        background-color: #333;
+        color: #ffffff;
+        text-align: center;
+        padding: 8px;
+        border-radius: 5px;
+        position: absolute;
+        z-index: 10;
+        bottom: 125%;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .tooltip-container:hover .tooltip-text {
+        visibility: visible;
+        opacity: 1;
+    }
+
+</style>
+<h1>Tools</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tag)
+            </th>
+            
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tag)
+            </td>
+
+           
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<main id="main">
+    <!-- Page-specific content -->
+    <h1 align="center" class="h1-gradient" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Tool Categories</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Design Tools</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>
+                    <div class="tooltip-container">
+                        <a href="https://www.figma.com/downloads/"> <img src="https://www.pixartprinting.it/blog/wp-content/uploads/2022/12/figma_logo.png" alt="Figma" class="logoSize"></a>
+                        <div class="tooltip-text">Click to download Figma</div>
+                    </div>
+                </td>
+                </div>
+                <td>A collaborative interface design tool for creating user interfaces and prototypes.</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="tooltip-container">
+                        <a href="https://www.canva.com/download/"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzHe-Zi-nKvHwkEJUyKH7fKWreYVTbrNMKGg&s" alt="Canva" class="logoSize"></a>
+                        <div class="tooltip-text">Click to download Canva</div>
+                    </div>
+                </td>
+                <td>An easy-to-use graphic design platform for creating social media graphics, presentations, posters, and more.</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="tooltip-container">
+                        <a href="https://www.adobe.com/products/xd.html"> <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Adobe_XD_CC_icon.svg" alt="Adobe XD" class="logoSize"></a>
+                        <div class="tooltip-text">Click to download Adobe XD</div>
+                    </div>
+                </td>
+                <td>A vector-based user experience design tool for web apps and mobile apps, enabling wireframing and prototyping.</td>
+            </tr>
+    </table>
+    <table>
+        <thead>
+            <tr>
+                <th>Coding Tools</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>
+                    <div class="tooltip-container">
+                        <a href="https://code.visualstudio.com/download"> <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" alt="VS Code" class="logoSize"></a>
+                        <div class="tooltip-text">Click to download VS Code</div>
+                    </div>
+                </td>
+                <td>A lightweight but powerful source code editor with built-in support for JavaScript, TypeScript, and Node.js, along with a rich ecosystem of extensions.</td>
+            </tr>
+
+
+            <tr>
+                <td>
+                    <div class="tooltip-container">
+                        <a href="https://www.jetbrains.com/idea/download/"> <img src="https://jetbrainssoftware.sk/wp-content/uploads/2020/02/IntelliJ_IDEA_icon.png" alt="IntelliJ IDEA" class="logoSize"></a>
+                        <div class="tooltip-text">Click to download IntelliJ IDEA</div>
+                    </div>
+                </td>
+                <td>An integrated development environment (IDE) for Java development, offering intelligent coding assistance and
+            </tr>
+            <tr>
+                <td>
+                    <div class="tooltip-container">
+                        <a href="https://codepen.io/"> <img src="https://blog.codepen.io/wp-content/uploads/2012/06/Button-Black-Large.png" alt="CodePen" class="logoSize"></a>
+                        <div class="tooltip-text">Click to visit CodePen</div>
+                    </div>
+                </td>
+                <td>An online code editor and community for front-end developers to showcase their work and experiment with HTML, CSS, and JavaScript.</td>
+            </tr>
+    </table>
+    <table>
+        <thead>
+            <tr>
+                <th>Video Tools</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="tooltip-container">
+                        <a href="https://www.adobe.com/products/premiere.html"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Adobe_Premiere_Pro_CC_2026_icon.svg/1200px-Adobe_Premiere_Pro_CC_2026_icon.svg.png" alt="Adobe Premiere Pro" class="logoSize"></a>
+                        <div class="tooltip-text">Click to download Adobe Premiere Pro</div>
+                    </div>
+                </td>
+                <td>A professional video editing software used for film, TV, and web content creation.</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="tooltip-container">
+                        <a href="https://apps.apple.com/us/app/final-cut-pro/id424389933?mt=12"> <img src="https://help.apple.com/assets/67D9BD39FA719AA48C0B1894/67D9BD3EFC8D1463810942D9/en_US/255cc57d6f86a64d2be35512133d19b5.png" alt="Final Cut Pro" class="logoSize"></a>
+                        <div class="tooltip-text">Click to download Final Cut Pro</div>
+                    </div>
+                </td>
+                <td>A powerful video editing application for Mac users, known for its advanced features and user-friendly interface.</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="tooltip-container">
+                        <a href="https://www.blackmagicdesign.com/products/davinciresolve/"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/DaVinci_Resolve_Studio.png/500px-DaVinci_Resolve_Studio.png" alt="DaVinci Resolve" class="logoSize"></a>
+                        <div class="tooltip-text">Click to download DaVinci Resolve</div>
+                    </div>
+                </td>
+                <td>A comprehensive video editing and color correction software used in post-production for films and TV shows.</td>
+            </tr>
+    </table>
+
+</main>
+

@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<main class="home-page">
+
+    <section class="intro-box">
+        <h2>Welcome to Creative Tools Aggregator</h2>
+        <p>
+            This platform helps you discover, compare, and explore creative tools
+            for design, coding, writing, and video production — all in one place.
+        </p>
+        <p>
+            Whether you're a student, designer, or developer, you can quickly navigate
+            between categories and learn what each tool is best used for.
+        </p>
+
+        <a class="btn btn-hero" asp-area="" asp-controller="Tools" asp-action="index">Explore Tools</a>
+    </section>
+
+
+    <!-- Categories -->
+    <section class="home-section">
+        <h3>Main Tool Categories</h3>
+        <ul class="category-list">
+            <li>Coding tools (VS Code, IntelliJ, CodePen)</li>
+            <li>Design tools (Figma, Canva, Adobe XD)</li>
+            <li>Video & animation tools (Premiere Pro,Final Cut, DaVinci Resolve)</li>
+        </ul>
+    </section>
+
+
+
+    <section class="home-section">
+        <h3>Example Tool Comparison</h3>
+        <table class="home-table">
+            <thead>
+                <tr>
+                    <th>Tool</th>
+                    <th>Category</th>
+                    <th>Platform</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>VS Code</td>
+                    <td>Coding</td>
+                    <td>Windows / macOS / Linux</td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td>Figma</td>
+                    <td>Design</td>
+                    <td>Web / Desktop</td>
+                    <td>Free + Paid</td>
+                </tr>
+                <tr>
+                    <td>DaVinci Resolve</td>
+                    <td>Video Editing</td>
+                    <td>Windows / macOS / Linux</td>
+                    <td>Free + Paid</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    </main>
