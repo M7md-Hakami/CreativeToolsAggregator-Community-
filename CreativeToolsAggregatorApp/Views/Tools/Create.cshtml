@@ -32,6 +32,13 @@
                 <input asp-for="tag" class="form-control" />
                 <span asp-validation-for="tag" class="text-danger"></span>
             </div>
+
+            <div class="form-group">
+                <label asp-for="image" class="control-label">Image URL (optional)</label>
+                <input asp-for="image" class="form-control" placeholder="https://example.com/image.png" />
+                <span asp-validation-for="image" class="text-danger"></span>
+                <small class="form-text text-muted">Paste an external image URL. Clicking the image on the index will navigate to the tool's link.</small>
+            </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
