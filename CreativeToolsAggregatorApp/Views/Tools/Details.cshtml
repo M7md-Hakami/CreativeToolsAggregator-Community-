@@ -4,39 +4,62 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<div class="container py-4">
+    <div class="card shadow-sm">
+        <div class="row g-0">
+            
+               
+            </div>
 
-<div>
-    <h4>Tools</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.link)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.link)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.tag)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.tag)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h2 class="card-title mb-1">@Html.DisplayFor(m => m.name)</h2>
+
+                    @if (!string.IsNullOrWhiteSpace(Model?.tag))
+                    {
+                        <span class="badge bg-primary mb-3">@Model.tag</span>
+                    }
+
+                    <p class="card-text text-muted mb-3">@Html.DisplayFor(m => m.description)</p>
+
+                    @if (!string.IsNullOrWhiteSpace(Model?.link))
+                    {
+                        <p class="mb-3">
+                            <a href="@Model.link" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
+                                Open tool
+                            </a>
+                            <a href="@Model.link" target="_blank" rel="noopener noreferrer" class="ms-2 text-decoration-none small text-break">
+                                <small class="text-muted">(@Model.link)</small>
+                            </a>
+                        </p>
+                    }
+
+                    <dl class="row">
+                        <dt class="col-sm-3 text-muted">Name</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(m => m.name)</dd>
+
+                        <dt class="col-sm-3 text-muted">Tag</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(m => m.tag)</dd>
+
+                        <dt class="col-sm-3 text-muted">Link</dt>
+                        <dd class="col-sm-9">
+                            @if (!string.IsNullOrWhiteSpace(Model?.link))
+                            {
+                                <a href="@Model.link" target="_blank" rel="noopener noreferrer">@Model.link</a>
+                            }
+                            else
+                            {
+                                <span class="text-muted">—</span>
+                            }
+                        </dd>
+                    </dl>
+
+                    <div class="mt-3">
+                        <a asp-action="Edit" asp-route-id="@Model?.id" class="btn btn-outline-secondary btn-sm me-2">Edit</a>
+                        <a asp-action="Index" class="btn btn-link btn-sm">Back to list</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

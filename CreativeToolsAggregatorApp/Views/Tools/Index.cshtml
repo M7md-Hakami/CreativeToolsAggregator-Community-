@@ -22,7 +22,7 @@
     }
 
     .logoSize {
-        height: 30px;
+        height: 37px;
         width: auto;
         object-fit: contain;
     }
@@ -34,9 +34,19 @@
         background: #eee;
         border-radius: 4px;
     }
+
+    .h1-gradient {
+        font-size: 2.5em;
+        font-weight: bold;
+        background: linear-gradient(to right, #00c6ff, #0072ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+       
+        margin-bottom: 20px;
+    }
 </style>
 
-<h1>Tools</h1>
+<h1 align="center" class="h1-gradient" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Creative Tools</h1>
 
 <p>
     <a asp-action="Create" class="btn btn-primary">Add new tool</a>
@@ -51,14 +61,14 @@ else
     foreach (var group in Model.Groups)
     {
         <section class="mb-4">
-            <h2>@group.Tag</h2>
+            <h2 class="h1-gradient" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">@group.Tag</h2>
 
             <table class="table table-striped">
-                <thead>
+                <thead style="background-color: #337ab7 ; color: white">
                     <tr>
                         <th>Image</th>
                         <th>Name</th>
-                        <th>Description</th>
+                        
                         <th></th>
                     </tr>
                 </thead>
@@ -70,7 +80,6 @@ else
                                 @if (!string.IsNullOrWhiteSpace(item.image))
                                 {
                                     var src = item.image;
-                                    // treat item.image as a full URL (external). If you later store relative URLs, you'll need to convert them appropriately.
                                     if (!string.IsNullOrWhiteSpace(item.link))
                                     {
                                         <a href="@item.link" target="_blank" rel="noopener noreferrer">
@@ -88,7 +97,7 @@ else
                                 }
                             </td>
                             <td>@item.name</td>
-                            <td>@item.description</td>
+                            
                             <td>
                                 <a asp-action="Details" asp-route-id="@item.id" class="btn btn-sm btn-info">Details</a>
                                 @if (User.Identity.IsAuthenticated)
